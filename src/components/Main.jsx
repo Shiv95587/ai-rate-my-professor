@@ -33,8 +33,10 @@ export default function Main() {
             {" "}
             {data.map((message, index) => (
               <div
-                className={`bg-header-linear-gradient text-slate-100 font-medium px-4 py-2 rounded-3xl max-w-[300px] ${
-                  message.role === "user" ? "ml-auto" : "mr-auto"
+                className={`  font-medium px-4 py-2 rounded-3xl max-w-[450px] tracking-wide ${
+                  message.role === "user"
+                    ? "sm:ml-auto ml-12 bg-header-linear-gradient shadow-md text-slate-100"
+                    : "sm:mr-auto mr-12S bg-white border text-gray-950"
                 }`}
                 key={index}
               >
@@ -54,14 +56,14 @@ export default function Main() {
         <form
           method="POST"
           onSubmit={handleSubmit}
-          className="flex flex-row justify-center absolute bottom-8 left-1/2 -translate-x-1/2"
+          className="flex flex-row justify-center absolute bottom-5 left-1/2 -translate-x-1/2"
         >
           <input
             type="text"
             placeholder="Ask Me"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            className="border pr-4 py-2 pl-4 w-[300px] text-base rounded-full focus:outline-none text-gray-600 shadow-md shadow-gray-200 sm:w-[450px] md:w-[600px] relative"
+            className="border pr-4 py-2 pl-4 w-[300px] text-base rounded-full focus:outline-none text-gray-950 shadow-md shadow-gray-200 sm:w-[450px] md:w-[600px] relative"
           />
           <Tooltip title={"Send"}>
             <button
